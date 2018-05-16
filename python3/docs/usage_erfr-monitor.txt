@@ -1,0 +1,76 @@
+
+USAGE (erfr-monitor.py)
+
+    Contents:
+
+        1.  Definition
+        2.  General stuff
+          2.1  How to run Python scripts
+          2.2  Overview of all command-line arguments
+        3.  Process status
+          3.1  Return the current process status
+          3.2  Permananently monitor the process status
+
+    1. Definition
+
+        The Erfr Monitor script returns or monitors the current status of
+        Erfr encryption, decryption, key generation and file obfuscation
+        processes.
+
+        This requires the usage of task IDs which are enabled by default. For
+        details about task IDs (as well as the corresponding task files) see
+        section 8 inside the documentation for the main Erfr script.
+
+    2. General stuff
+
+        2.1 How to run Python scripts
+
+            All usage examples below show how to execute the Python scripts on
+            the shell of a Unix-like system. If you do not know, how to run
+            those scripts on your operating system, you may have a look at
+            this page:
+
+                http://www.urbanware.org/howto_python.html
+
+        2.2 Overview of all command-line arguments
+
+            Usually, each script requires command-line arguments to operate.
+            So, to get an overview of all arguments available, simply run the
+            script with the "--help" argument. For example:
+
+                $ ./erfr-monitor.py --help
+
+    3. Process status
+
+        When starting an Erfr encryption, decryption, key generation and file
+        obfuscation process, a task ID will be returned, for example:
+
+            Started encryption process with task ID 1.
+
+        Notice that a process can only be monitored while it is running.
+
+        However, there is no support for monitoring the generation process of
+        multi-part key files so far.
+
+        For details about those multi-part files, see section 3.2 inside the
+        documentation of the Erfr Key Generator script.
+
+        3.1 Return the current process status
+
+            To simply return the current status of that process (with ID 1)
+            and exit, type:
+
+                $ ./erfr-monitor.py -t 1
+
+        3.2 Permananently monitor the process status
+
+            To monitor the status of that process permanently, a refresh delay
+            is required. For example, to monitor the Erfr process and refresh
+            the status every 3 seconds, type:
+
+                $ ./erfr-monitor.py -t 1 -d 3
+
+            If a delay of 0 seconds is given, the script will ignore the
+            delay, simply return the current process status and exit (just
+            like if no delay argeument was given).
+

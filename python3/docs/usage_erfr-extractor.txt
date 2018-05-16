@@ -1,0 +1,77 @@
+
+USAGE (erfr-extractor.py)
+
+    Contents:
+
+        1.  Definition
+        2.  General stuff
+          2.1  How to run Python scripts
+          2.2  Overview of all command-line arguments
+          2.3  Using key files multiple times
+        3.  Extract a byte range
+
+    1. Definition
+
+        The Erfr Key Generator script builds key files which can either be
+        used for encryption or obfuscation purposes (as fake key files).
+
+    2. General stuff
+
+        2.1 How to run Python scripts
+
+            All usage examples below show how to execute the Python scripts on
+            the shell of a Unix-like system. If you do not know, how to run
+            those scripts on your operating system, you may have a look at
+            this page:
+
+                http://www.urbanware.org/howto_python.html
+
+        2.2 Overview of all command-line arguments
+
+            Usually, each script requires command-line arguments to operate.
+            So, to get an overview of all arguments available, simply run the
+            script with the "--help" argument. For example:
+
+                $ ./erfr-extractor.py --help
+
+        2.3 Using keys multiple times
+
+            Even though it is possible, it is absolutely NOT recommended to
+            use the same key (or any part of it) multiple times to encrypt
+            data, as this would be a security risk.
+
+    3. Extract a byte range
+
+        This usage example uses a text file to demonstrate how Erfr Extractor
+        works, but actually, this component was built to extract byte ranges
+        out of key files.
+
+        So, if you have the text file "/tmp/foo.txt" containing the line
+
+            This is some example for extracting bytes.
+
+        and want to extract the word "extract" from that line into the new
+        file "/tmp/out.txt", you need to determine its offset (the position
+        where the string starts) as well as its length.
+
+        First, the offset:
+
+                      1         2         3         4
+            0....5....0....5....0....5....0....5....0.
+            This is some example for extracting bytes.
+                                     ^
+
+        As you can see above, the offset for the string is 25. Furthermore, we
+        also need the length of the string and the word "extract" consists of
+        7 characters.
+
+        Due to the fact, that the key file (or any parts of it) should not be
+        used multiple times to encrypt data, the Erfr Extractor component
+        comes with the optional "--remove" argument, which removes the bytes
+        read from the input file to avoid multiple usage of the same key data.
+
+        Now, to extract that string, type:
+
+            ./erfr-extractor.py -i /tmp/foo.txt -o /tmp/out.txt -s 25 -l 7 \
+                                --remove
+

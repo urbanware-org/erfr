@@ -1,0 +1,56 @@
+
+USAGE (erfr-cleaner.py)
+
+    Contents:
+
+        1.  Definition
+        2.  General stuff
+          2.1  How to run Python scripts
+          2.2  Overview of all command-line arguments
+        3.  Delete remaining temporary Erfr files
+
+    1. Definition
+
+        The Erfr Cleaner script removes remaining Erfr task files, if they
+        have not been deleted automatically for some reason.
+
+        For details about task IDs (and task files) see section 8 inside the
+        documentation for the main Erfr script.
+
+    2. General stuff
+
+        2.1 How to run Python scripts
+
+            All usage examples below show how to execute the Python scripts on
+            the shell of a Unix-like system. If you do not know, how to run
+            those scripts on your operating system, you may have a look at
+            this page:
+
+                http://www.urbanware.org/howto_python.html
+
+        2.2 Overview of all command-line arguments
+
+            Usually, each script requires command-line arguments to operate.
+            So, to get an overview of all arguments available, simply run the
+            script with the "--help" argument. For example:
+
+                $ ./erfr-cleaner.py --help
+
+    3. Delete remaining temporary Erfr files
+
+        In case an Erfr process has been cancelled or not completed properly
+        and some of the temporary Erfr files have not been automatically
+        deleted for some reason, they can be removed manually.
+
+        It is strongly recommended to delete those files when there are no
+        Erfr processes running.
+
+        Now, to delete the temporary files, simply run the script without any
+        arguments:
+
+            $ ./erfr-cleaner.py
+
+        The script deletes all temporary files automatically. There is no way
+        to give a certain task ID, due to the fact, that this script should be
+        run once to clean up after all Erfr processes have been completed.
+

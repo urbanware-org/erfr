@@ -1,0 +1,77 @@
+
+USAGE (erfr-keysplit.py)
+
+    Contents:
+
+        1.  Definition
+        2.  General stuff
+          2.1  How to run Python scripts
+          2.2  Overview of all command-line arguments
+        3.  Split a key file
+        4.  Merge multiple key file parts
+
+    1. Definition
+
+        The Erfr Key Splitter script splits a key file into seperate parts and
+        also merge multiple key file parts to a single key file.
+
+    2. General stuff
+
+        2.1 How to run Python scripts
+
+            All usage examples below show how to execute the Python scripts on
+            the shell of a Unix-like system. If you do not know, how to run
+            those scripts on your operating system, you may have a look at
+            this page:
+
+                http://www.urbanware.org/howto_python.html
+
+        2.2 Overview of all command-line arguments
+
+            Usually, each script requires command-line arguments to operate.
+            So, to get an overview of all arguments available, simply run the
+            script with the "--help" argument. For example:
+
+                $ ./erfr-keysplit.py --help
+
+    3. Split a key file
+
+        You can split a key file to multiple parts. However, the seperate
+        parts must be merged (see section 4) again to a single file before
+        they can be used for the encryption or decryption of files.
+
+        For example, to split the key file called "foobar.key" into 4 parts
+        the command line would be as follows:
+
+            $ ./erfr-keysplit.py -a split -k foobar.key -p 4
+
+        This will create the following files:
+
+            foobar.key.001
+            foobar.key.002
+            foobar.key.003
+            foobar.key.004
+
+    4. Merge multiple key file parts
+
+        In order to use a key consisting of multiple parts, it has to be
+        merged first. So, to merge a key file which has been split before,
+        you need all of the key parts, of course.
+
+        For example, if you have the following parts
+
+            foobar.key.001
+            foobar.key.002
+            foobar.key.003
+            foobar.key.004
+
+        and want to merge them, the command would be as follows. Notice that
+        the key file argument must be identical with the name of the seperate
+        parts, but without the part ID suffix.
+
+            $ ./erfr-keysplit.py -a merge -k foobar.key
+
+        This will create the merged key file:
+
+            foobar.key
+

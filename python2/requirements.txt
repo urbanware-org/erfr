@@ -1,0 +1,39 @@
+
+REQUIREMENTS (Erfr)
+
+    Notice
+
+        This version of Erfr was built for the Python 2.x framework. If you
+        need a version that works with Python 3.x, you may look here:
+
+            http://www.urbanware.org/erfr.html
+
+    General
+
+        Software requirements in general:
+
+            - Python 2.x (version 2.7 or higher is recommended, may also work
+                          with earlier versions)
+
+    Fortuna PRNG
+
+        The Erfr project also allows using the Fortuna PRNG (Pseudo-Random
+        Number Generator) to generate random bytes suitable for encryption
+        purposes.
+
+        For this optional feature, the PyCrypto library (version 2.1.0 or
+        higher) is required which is platform independent and can be
+        downloaded for free.
+
+        While developing and testing this feature, version 2.6.1 of the
+        PyCrypto library has been used. However, the feature should work with
+        newer versions and may also work with older ones.
+
+        Even though, it may work with older versions, it is strongly
+        recommended to use the current version of the library and keep it
+        up-to-date.
+
+        Details can be found on the website of the PyCrypto library:
+
+            https://pypi.python.org/pypi/pycrypto
+

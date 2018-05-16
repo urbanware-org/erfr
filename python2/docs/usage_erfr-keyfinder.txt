@@ -1,0 +1,50 @@
+
+USAGE (erfr-keyfinder.py)
+
+    Contents:
+
+        1.  Definition
+        2.  General stuff
+          2.1  How to run Python scripts
+          2.2  Overview of all command-line arguments
+        3.  Find the corresponding key file
+
+    1. Definition
+
+        The Erfr Key Finder script helps to find the corresponding key for an
+        encrypted file and vice versa.
+
+    2. General stuff
+
+        2.1 How to run Python scripts
+
+            All usage examples below show how to execute the Python scripts on
+            the shell of a Unix-like system. If you do not know, how to run
+            those scripts on your operating system, you may have a look at
+            this page:
+
+                http://www.urbanware.org/howto_python.html
+
+        2.2 Overview of all command-line arguments
+
+            Usually, each script requires command-line arguments to operate.
+            So, to get an overview of all arguments available, simply run the
+            script with the "--help" argument. For example:
+
+                $ ./erfr-keyfinder.py --help
+
+    3. Find the corresponding key file
+
+        For example, to find the corresponding key for the encrypted file
+        "foobar.enc" inside the directory "/tmp/keys", type:
+
+            $ ./erfr-keyfinder.py -f foobar.enc -d /tmp/keys
+
+        If the key or encrypted file has been obfuscated, further command-line
+        arguments are required.
+
+        For example, if the key file has been obfuscated with 128 bytes and
+        the encrypted file with 64 bytes, type:
+
+            $ ./erfr-keyfinder.py -f foobar.enc -d /tmp/keys -k 128 -e 64
+

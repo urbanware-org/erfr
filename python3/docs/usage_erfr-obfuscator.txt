@@ -1,0 +1,55 @@
+
+USAGE (erfr-obfuscator.py)
+
+    Contents:
+
+        1.  Definition
+        2.  General stuff
+          2.1  How to run Python scripts
+          2.2  Overview of all command-line arguments
+          2.3  Pseudo-random number generators
+        3.  Obfuscate a file
+
+    1. Definition
+
+        The Erfr Obfuscator is an afterwards obfuscation (post-obfuscation)
+        script that allows obfuscating already existing encrypted and key
+        files by adding random bytes.
+
+    2. General stuff
+
+        2.1 How to run Python scripts
+
+            All usage examples below show how to execute the Python scripts on
+            the shell of a Unix-like system. If you do not know, how to run
+            those scripts on your operating system, you may have a look at
+            this page:
+
+                http://www.urbanware.org/howto_python.html
+
+        2.2 Overview of all command-line arguments
+
+            Usually, each script requires command-line arguments to operate.
+            So, to get an overview of all arguments available, simply run the
+            script with the "--help" argument. For example:
+
+                $ ./erfr-obfuscator.py --help
+
+        2.3 Pseudo-random number generators
+
+            See section 2.3 inside the documentation for the main Erfr script.
+
+    3. Obfuscate a file
+
+        When using the file obfuscation feature, the amount of random bytes
+        for the encrypted and the key file should NOT be identical, because
+        this would result in files with the same size again.
+
+        Please also keep in mind that the obfuscation values used to encrypt
+        are required to properly decrypt the encrypted data again.
+
+        For example, if you want to obfuscate a key file called "foobar.key"
+        by adding 1024 random bytes, the command line would look like this:
+
+            $ ./erfr-obfuscator.py -f foobar.key -r 1024
+

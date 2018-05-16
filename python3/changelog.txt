@@ -1,0 +1,141 @@
+
+CHANGELOG (Erfr)
+
+    Version 4.3.3 (2018-01-02)
+
+        + Added new versions of the Clap and PaVal core modules (replaced the
+          existing ones).
+
+        * Revised (refurbished) all components of the project in general
+          (negligible changes).
+
+        # Fixed the undefined variable bug inside the Erfr byte rotation core
+          module.
+
+    Version 4.3.2 (2016-05-10)
+
+        * Revised (reorganized) some code inside the Erfr Executor script as
+          well as inside the Erfr Common core module.
+        * Revised the parameter file export method inside the main Erfr core
+          module (output file will first be deleted and then recreated if the
+          overwrite option is set).
+
+    Version 4.3.1 (2016-05-03)
+
+        * Revised the parameter file core module (enhanced the possible return
+          values of the read method),
+        * Revised the main Erfr core module (negligible changes).
+
+        # Fixed the parameter bug inside the export method of the main Erfr
+          core module (unnecessary parameters will not be written with default
+          values anymore).
+        # Fixed the parameter parsing bug inside the Erfr Executor script
+          (some contents from the parameter file have not been parsed
+          correctly in some cases).
+
+    Version 4.3.0 (2016-04-28)
+
+        + Added the global exception method to the Erfr Common core module to
+          print formatted error descriptions better readability.
+        + Added the Erfr Executor component.
+        + Added the export feature to the main Erfr component (allows to
+          export the encryption related information into an parameter file).
+        + Added the feature to find obfuscated key files to the Erfr Key
+          Finder component.
+
+        * Revised some variable names inside the Erfr Random Byte Generator
+          core module.
+        * Revised the substitution-box core module (renamed the core file and
+          the object).
+
+        # Fixed the global config value bug inside the Erfr Extractor script
+          (some values have not been parsed correctly).
+
+    Version 4.2.2 (2015-08-24)
+
+        + Added the refresh status information to the Erfr Monitor component
+          (in case a delay was given).
+
+        * Revised (cleaned up) the global config file.
+        * Revised some code inside the Erfr substitution-box core module
+          (negligible changes).
+
+    Version 4.2.1 (2015-05-19)
+
+        * Revised the Erfr Extractor script (added elapsed time information).
+        * Revised the Erfr Key File core module (added new process type for
+          generating split keys).
+        * Revised the Erfr Key Finder script (added elapsed time information,
+          further negligible changes).
+        * Revised the Erfr Key Splitter script (removed task ID, added elapsed
+          time information).
+        * Revised the Erfr Monitor core module (negligible changes).
+
+    Version 4.2.0 (2015-05-02)
+
+        + Added the Erfr Key Splitter component.
+
+        * Revised some code inside the Erfr Key Generator script (negligible
+          changes).
+        * Revised the Erfr Extractor component (also added the overwrite
+          feature).
+
+        # Fixed the (negligible) progress bar bug inside the Erfr Monitor core
+          module (percent value has been refreshed and changed in some case
+          while stalled).
+        # Fixed the special character bug inside the Erfr Monitor component
+          (occurred if a file name contained certain unusual characters).
+
+        - Removed the backwards compatibility scripts (for files encrypted
+          with certain methods of the previous major version).
+
+    Version 4.1.3 (2015-03-14)
+
+        * Revised (reorganized) some code inside the Erfr Common as well as
+          the Erfr Monitor core module.
+        * Revised the format of the file size information inside the Erfr
+          Monitor core module (added human readable format).
+
+        # Fixed some negligible bugs inside the Erfr Common core module.
+
+    Version 4.1.2 (2015-02-27)
+
+        * Revised the Erfr Monitor core module (enhanced the status
+          information output, detection).
+
+        # Fixed some general Python 3 related issues in various components.
+        # Fixed the missing file bug inside the main Erfr script when trying
+          to use an existing key.
+        # Fixed the temporary Base64 key file bug inside the main Erfr script
+          (temporary key file has not been deleted).
+
+    Version 4.1.1 (2015-02-24)
+
+        * Revised the method to read options from the global config file
+          inside the Erfr Common core module.
+        * Revised the monitor core module (removed unnecessary progress bars,
+          added additional status information, further negligible changes).
+
+        # Fixed the byte array overflow bug inside the main Erfr core module
+          (in some constellations the buffer for output files has not been
+          emptied properly).
+        # Fixed the key overwrite bug inside the Erfr Key File core module
+          (the overwrite argument has been ignored before).
+
+    Version 4.1.0 (2015-02-14)
+
+        + Added the delay feature to decrease CPU usage on encryption,
+          decryption and key generation processes.
+
+        * Revised the command-line arguments inside the main Erfr script
+          (enhanced the argument for the reverse feature).
+        * Revised the global config file (added new options and removed
+          obsolete ones).
+
+        - Removed obsolete code from the Erfr Common and the Erfr Key File
+          core module.
+
+    Version 4.0.0 (2015-02-09)
+
+        * First official release of this major version.
+

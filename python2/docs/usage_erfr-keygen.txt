@@ -1,0 +1,91 @@
+
+USAGE (erfr-keygen.py)
+
+    Contents:
+
+        1.  Definition
+        2.  General stuff
+          2.1  How to run Python scripts
+          2.2  Overview of all command-line arguments
+          2.3  Pseudo-random number generators
+          2.4  Using key files multiple times
+        3.  Generate a key file
+          3.1  Single file
+          3.2  Multiple parts
+        4.  Generate a key string
+
+    1. Definition
+
+        The Erfr Key Generator script builds key files which can either be
+        used for encryption or obfuscation purposes (as fake key files).
+
+    2. General stuff
+
+        2.1 How to run Python scripts
+
+            All usage examples below show how to execute the Python scripts on
+            the shell of a Unix-like system. If you do not know, how to run
+            those scripts on your operating system, you may have a look at
+            this page:
+
+                http://www.urbanware.org/howto_python.html
+
+        2.2 Overview of all command-line arguments
+
+            Usually, each script requires command-line arguments to operate.
+            So, to get an overview of all arguments available, simply run the
+            script with the "--help" argument. For example:
+
+                $ ./erfr-keygen.py --help
+
+        2.3 Pseudo-random number generators
+
+            See section 2.3 inside the documentation for the main Erfr script.
+
+        2.4 Using keys multiple times
+
+            Even though it is possible, it is absolutely NOT recommended to
+            use the same key (or any part of it) multiple times to encrypt
+            data, as this would be a security risk.
+
+    3. Generate a key file
+
+        3.1 Single file
+
+            For example, to generate a key file called "foobar.key" with the
+            file size of 1024 bytes, the command line would look like this:
+
+                $ ./erfr-keygen.py -k foobar.key -s 1024
+
+        3.2 Multiple parts
+
+            You can also create a key consisting of multiple parts. However,
+            the seperate parts must be merged to a single file before they can
+            be used for the encryption or decryption of files.
+
+            The Erfr Key Splitter script allows merging splitted files. For
+            details see the corresponding documentation file.
+
+            For example, to generate a key file called "foobar.key" with the
+            file size of 1024 bytes and split into 4 parts the command line
+            would look like this:
+
+                $ ./erfr-keygen.py -k foobar.key -s 1024 -p 4
+
+            This will create the following files:
+
+                foobar.key.001
+                foobar.key.002
+                foobar.key.003
+                foobar.key.004
+
+    4. Generate a key string
+
+        You can also generate a key string instead of a file. For example, to
+        generate a key string with the length of 16 bytes, type:
+
+            $ ./erfr-keygen.py --base64 -s 16
+
+        The generated key string will be encoded using Base64, so the output
+        string will be longer than 16 characters.
+
